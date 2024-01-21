@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --font-family: 'Roboto', sans-serif;
+
+    --Tomato: hsl(4, 100%, 67%);
+    --Dark_Slate_Grey: hsl(234, 29%, 20%);
+    --Charcoal_Grey: hsl(235, 18%, 26%);
+    --Grey: hsl(231, 7%, 60%);
+    --White: hsl(0, 0%, 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--Charcoal_Grey);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: "Roboto";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 890px;
+    margin: 0 auto;
+    background-color: var(--White);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    /* grid-template-columns: 1fr 0.8fr; */
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.container.success {
+    display: initial;
+    padding: 2rem;
+    /* width: 400px; */
+}
+
+.left {
+    color: var(--Dark_Slate_Grey);
+    /* padding: 4rem 2rem 2rem 2rem; */
+    margin-right: 3rem;
+}
+
+.left-info h1 {
+    font-size: 2.8rem;
+    /* margin-bottom: 0.5rem; */
+}
+
+.left-info p,
+.left-info ul {
+    margin-bottom: 1.5rem;
+    max-width: 360px;
+}
+
+.left-info ul li {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: -17px;
+}
+
+.left-info ul li img {
+    width: 18px;
+}
+
+.left-info ul li::before {
+    content: "";
+    margin-right: 0.5rem;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-item label .invalid-email {
+    color: var(--Tomato);
+    display: none;
+}
+
+.form-item label .invalid-email.active {
+    display: block;
+}
+
+.form-item input {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.form-item button {
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.form-item input {
+    border: 1px solid var(--Grey);
+}
+
+.form-item input.active {
+    background-color: rgba(255, 98, 87, 0.258);
+    border: 1px solid var(--Tomato);
+}
+
+.form-item button {
+    cursor: pointer;
+    background-color: var(--Dark_Slate_Grey);
+    color: var(--White);
+    font-weight: 700;
+    outline: none;
+    border: none;
+}
+
+.form-item button:hover {
+    background: linear-gradient(127deg, rgba(255, 63, 124, 1) 40%, rgba(255, 154, 34, 1) 70%);
+}
+
+.right {
+    text-align: right;
+    display: grid;
+}
+
+img {
+    object-fit: scale-down;
+    height: 100%;
+    width: 95%;
+}
+
+.confirmed-message {
+    display: none;
+    line-height: 1.2;
+}
+
+.confirmed-message.active {
+    display: block;
+}
+
+.confirmed-message img {
+    width: 60px;
+    height: 60px;
+}
+
+.confirmed-message h2 {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+}
+
+.confirmed-message p {
+    margin: 1rem 0 2rem;
+}
+
+.confirmed-message button {
+    cursor: pointer;
+    background-color: var(--Dark_Slate_Grey);
+    color: var(--White);
+    font-weight: 700;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.confirmed-message button:hover {
+    background: linear-gradient(127deg, rgba(255, 63, 124, 0.7)40%, rgba(255, 154, 34, 0.7)70%);
+}
+
+#user-email {
+    font-weight: 700;
+}
+
+@media (max-width:570px) {
+    body {
+        display: initial;
+        line-height: 1.4;
+    }
+
+    .container {
+        width: 100%;
+        height: initial;
+        padding: 0;
+        grid-template-columns: 1fr;
+        border-radius: unset;
+        flex-direction: column-reverse;
+    }
+
+    .container.success {
+        display: block;
+        padding: initial;
+        width: 100%;
+    }
+
+    .left {
+        padding: 1rem 2rem;
+        grid-row: 2;
+        margin: unset;
+    }
+
+    .left-info h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .left-info ul li {
+        margin-bottom: 1rem;
+    }
+
+
+    .right {
+        display: unset;
+    }
+
+    .right img {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .confirmed-message.active {
+        height: 100vh;
+        padding: 5.8rem 2rem 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .confirmed-message button {
+        margin-top: auto;
+    }
+}
+
+@media (min-width:768px) {
+    .container.success {
+        width: 400px;
+        height: 440px;
+    }
+}
